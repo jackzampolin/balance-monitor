@@ -14,7 +14,7 @@ WORKDIR /go/src/github.com/jackzampolin/balance-monitor
 COPY . .
 
 # Get deps
-RUN go get -u -t -f -v ./...
+RUN go get ./...
 
 # Build app
 RUN go build -o balance-monitor main.go
@@ -22,9 +22,11 @@ RUN go build -o balance-monitor main.go
 # Production Image
 FROM alpine
 
+RUN apk add --update ca-certificates
+
 COPY --from=build-env /go/src/github.com/jackzampolin/balance-monitor/balance-monitor /usr/bin/balance-monitor
 
-COPY .balance-monitor.yaml /root/.balance-monitor.yaml
+COPY balance-monitor.sample.yaml /root/.balance-monitor.yaml
 
 ENTRYPOINT ["/usr/bin/balance-monitor"]
 

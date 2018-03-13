@@ -1,0 +1,12 @@
+influxConfig:
+  address: "https://influx.example.com:8086"
+  username: "user"
+  password: "pass"
+trackedBalances:
+  - address: "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa"
+    service: "satoshi-alert"
+    numTransactions: 1000000
+balanceAddress: "https://blockchain.info/balance?active=%s"
+feesAddress: "https://bitcoinfees.earn.com/api/v1/fees/recommended"
+pollingInterval: "30s"
+port: 8080

@@ -1,0 +1,8 @@
+version: '3'
+services:
+  bitcoin:
+    build: ./
+    volumes:
+      - ./.balance-monitor.yaml:/root/.balance-monitor.yaml
+    ports:
+      - "8080:8080"
