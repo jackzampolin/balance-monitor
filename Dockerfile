@@ -1,6 +1,9 @@
 # build stage
 FROM golang:alpine AS build-env
 
+# Install make
+RUN apk add --update git
+
 # Create build dir
 RUN mkdir -p /go/src/github.com/jackzampolin/balance-monitor
 
